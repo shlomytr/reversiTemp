@@ -1,8 +1,11 @@
+
+
 public abstract class Player {
+
     protected GameLogic logic;
     protected boolean canPlay;
     protected int type;
-    protected int[] lastMove ;
+    protected Point lastMove ;
 
     /**
      * @name : Player
@@ -25,28 +28,25 @@ public abstract class Player {
     }
 
     /**
-     * @name : DeclareNoMoves
-     * @parameters : no parameters
-     * @return : the function notify that the player can't play
+     * prints that the player has no moves
      **/
-
-    virtual void declareNoMoves();
+    abstract void declareNoMoves();
 
     /**
-     * @name : getLastMove
-     * @parameters : no parameters
-     * @return : the function returns a pair with the index of the last move played
+     *@return the last move of the player as a point
      **/
-
-    pair<int, int> getLastMove();
+    Point getLastMove() {
+        return lastMove;
+    }
 
     /**
      * @name : getType
      * @parameters : no parameters
      * @return : the function returns the type of the player (HumanPlayer, AIPlayer etc)
      **/
-
-    int getType();
+    int getType() {
+        return this.type;
+    }
 
     /**
      * @name : playOneTurn
@@ -54,15 +54,13 @@ public abstract class Player {
      * @return : the function makes a move in the game
      **/
 
-    virtual void playOneTurn(bool blacksTurn) = 0;
+    abstract void playOneTurn(boolean blacksTurn);
 
     /**
      * @name : onlineEnd
      * @parameters : no parameters
      * @return : in LocalPlayer only the function sends a message to the server declaring that the current game has ended
      **/
-
-    virtual void onlineEnd() = 0;
-
+    abstract void onlineEnd();
 
 }

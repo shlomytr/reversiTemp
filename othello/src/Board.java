@@ -10,10 +10,6 @@ public class Board {
 
     }
 
-    public enum Color {
-        white, black, empty;
-    }
-
     /**
      * the constructor
      * @param size the size of the board
