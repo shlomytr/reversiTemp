@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/othello/othello.iml" filepath="$PROJECT_DIR$/othello/othello.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reversiTemp.iml" filepath="$PROJECT_DIR$/reversiTemp.iml" />
+    </modules>
+  </component>
+</project>
