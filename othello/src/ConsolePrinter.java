@@ -37,7 +37,7 @@ public class  ConsolePrinter implements Printer {
             System.out.print(i + " | ");
         System.out.print("\n" + tmp + "--");
         for (int i = 0; i < b.getBoardSize(); i++, row++) {
-            System.out.println(row + "| ");
+            System.out.print(row + "| ");
             for (int j = 0; j < b.getBoardSize(); j++)
                 System.out.print(b.getCell(i,j) + " | ");
             System.out.println("\n" + tmp + "--");
