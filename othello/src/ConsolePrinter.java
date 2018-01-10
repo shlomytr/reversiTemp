@@ -35,11 +35,17 @@ public class  ConsolePrinter implements Printer {
         System.out.print( " | ");
         for (int i = 1; i < b.getBoardSize() + 1; i++)
             System.out.print(i + " | ");
-        System.out.print("\n" + tmp + "--");
+        System.out.print("\n" + tmp + "--" + "\n");
         for (int i = 0; i < b.getBoardSize(); i++, row++) {
-            System.out.println(row + "| ");
-            for (int j = 0; j < b.getBoardSize(); j++)
-                System.out.print(b.getCell(i,j) + " | ");
+            System.out.print(row + "| ");
+            for (int j = 0; j < b.getBoardSize(); j++) {
+                if(b.getCell(i, j) == Color.black)
+                    System.out.print("x | ");
+                else if(b.getCell(i, j) == Color.white)
+                    System.out.print("o | ");
+                else
+                    System.out.print("  | ");
+            }
             System.out.println("\n" + tmp + "--");
         }
         if (!onlyPrintBoard)
