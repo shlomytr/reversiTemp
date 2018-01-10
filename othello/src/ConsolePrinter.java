@@ -29,7 +29,9 @@ public class  ConsolePrinter implements Printer {
         if (!onlyPrintBoard)
             System.out.println("The current board:");
         int row = 1;
-        String tmp = ("-"*4*b.getBoardSize());
+        String tmp="";
+        for (int k=0;k<4*b.getBoardSize();k++)
+            tmp =tmp.concat("-");
         System.out.print( " | ");
         for (int i = 1; i < b.getBoardSize() + 1; i++)
             System.out.print(i + " | ");
@@ -37,26 +39,26 @@ public class  ConsolePrinter implements Printer {
         for (int i = 0; i < b.getBoardSize(); i++, row++) {
             System.out.println(row + "| ");
             for (int j = 0; j < b.getBoardSize(); j++)
-                System.out.print(b.getCell(i,j) << " | ");
+                System.out.print(b.getCell(i,j) + " | ");
             System.out.println("\n" + tmp + "--");
         }
         if (!onlyPrintBoard)
-            System.out.println("The score is: Black = " + b.getBTiles() << "\tWhite = " + b.getWTiles());
+            System.out.println("The score is: Black = " + b.getBTiles() + "\tWhite = " + b.getWTiles());
     }
 
     @Override
     public void printsWhoWon(Board b) {
         System.out.println("The final board:\n");
         printBoard(b, true);
-        System.out.println("The game is finished! The final score is: Black = " << b.getBTiles() << "\tWhite = "
-                << b.getWTiles() << endl);
-        cout << "The winner is ";
+        System.out.println("The game is finished! The final score is: Black = " + b.getBTiles() + "\tWhite = "
+                + b.getWTiles());
+        System.out.print("The winner is ");
         if (b.getBTiles() > b.getWTiles())
-            cout << "Black!\n";
+            System.out.println("Black!");
         else if (b.getBTiles() < b.getWTiles())
-            cout << "White!\n";
+            System.out.println("White!");
         else
-            cout << "no one! The game ended as a draw!\n";
+            System.out.println("no one! The game ended as a draw!");
     }
 
     @Override
