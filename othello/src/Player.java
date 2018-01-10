@@ -15,6 +15,7 @@ public abstract class Player {
 
     Player(GameLogic l){
     this.logic = l;
+    this.canPlay = true;
     }
 
     /**
