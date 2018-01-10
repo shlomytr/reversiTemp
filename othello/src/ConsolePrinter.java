@@ -18,10 +18,13 @@ public class  ConsolePrinter implements Printer {
 
     @Override
     public void printLastMove(boolean blacksTurn, int i, int j) {
+        int tmp1, tmp2;
+        tmp1= i+1;
+        tmp2= j+1;
         if (!blacksTurn)
-            System.out.println("The last move of player x was: (" + i + 1 + "," + j + 1 + ")");
+            System.out.println("The last move of player x was: (" + tmp1 + "," + tmp2 + ")");
         else
-            System.out.println("The last move of player o was: (" + i + 1 + "," + j + 1 + ")");
+            System.out.println("The last move of player o was: (" + tmp1 + "," + tmp2 + ")");
     }
 
     @Override
@@ -79,11 +82,15 @@ public class  ConsolePrinter implements Printer {
 
     @Override
     public void printPosMoves(Board b) {
+        int tmp1, tmp2;
         System.out.print("Your possible moves are: ");
         for (int i = 0; i < b.getBoardSize(); i++)
             for (int j = 0; j < b.getBoardSize(); j++)
-                if (b.getPosCell(i, j))
-                    System.out.print("(" + i + 1 + ","+ j + 1 + ") ");
+                if (b.getPosCell(i, j)){
+                    tmp1= i+1;
+                    tmp2= j+1;
+                    System.out.print("(" + tmp1 + ","+ tmp2 + ") ");
+                }
         System.out.println();
     }
 }

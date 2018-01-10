@@ -40,23 +40,23 @@ public class DeafultLogic extends GameLogic {
             return false;
         if (blacksTurn) {
             // Black's turn - the function returns true
-            if (foundACandidate && board.getCell(i + rowDif, j + colDif) == Color.black)
+            if (foundACandidate && board.getCell(i + rowDif, j + colDif).equals(Color.black) )
                 return true;
             // Black's turn - tries to check if the first adjacent tile is white
-            if (!foundACandidate && board.getCell(i + rowDif, j + colDif) == Color.white)
+            if (!foundACandidate && board.getCell(i + rowDif, j + colDif).equals(Color.white))
                 return checkAdTile(blacksTurn, i + rowDif, j + colDif, rowDif, colDif, true);
             // Black's turn - tries to check if the the rest of the tiles are white
-            if (foundACandidate && board.getCell(i + rowDif, j + colDif) == Color.white)
+            if (foundACandidate && board.getCell(i + rowDif, j + colDif).equals(Color.white))
                 return checkAdTile(blacksTurn, i + rowDif, j + colDif, rowDif, colDif, true);
         } else {
             // White's turn - the function returns true
-            if (foundACandidate && board.getCell(i + rowDif, j + colDif) == Color.white)
+            if (foundACandidate && board.getCell(i + rowDif, j + colDif).equals(Color.white))
                 return true;
             // White's turn - tries to check if the first adjacent tile is black
-            if (!foundACandidate && board.getCell(i + rowDif, j + colDif) == Color.black)
+            if (!foundACandidate && board.getCell(i + rowDif, j + colDif).equals(Color.black))
                 return checkAdTile(blacksTurn, i + rowDif, j + colDif, rowDif, colDif, true);
             // White's turn - tries to check if the rest of the tiles are black
-            if (foundACandidate && board.getCell(i + rowDif, j + colDif) == Color.black)
+            if (foundACandidate && board.getCell(i + rowDif, j + colDif).equals(Color.black))
                 return checkAdTile(blacksTurn, i + rowDif, j + colDif, rowDif, colDif, true);
         }
         return false;
@@ -69,17 +69,17 @@ public class DeafultLogic extends GameLogic {
             return false;
         if (blacksTurn) {
             // Black's turn - Reached a black tile. All the white tiles will flip
-            if (foundACandidate && board.getCell(i + rowDif, j + colDif) == Color.black)
+            if (foundACandidate && board.getCell(i + rowDif, j + colDif).equals(Color.black))
                 return true;
             // Black's turn - tries to check if the first adjacent tile is white, and if true flips it
-            if (!foundACandidate && board.getCell(i + rowDif, j + colDif) == Color.white) {
+            if (!foundACandidate && board.getCell(i + rowDif, j + colDif).equals(Color.white)) {
                 if (changeBoard(blacksTurn, i + rowDif, j + colDif, rowDif, colDif, true)) {
                     flipTile(blacksTurn, i + rowDif, j + colDif);
                     return true;
                 }
             }
             // Black's turn - tries to check if all the rest of the tiles are white, and if true flips them
-            if (foundACandidate && board.getCell(i + rowDif, j + colDif) == Color.white) {
+            if (foundACandidate && board.getCell(i + rowDif, j + colDif).equals(Color.white)) {
                 if (changeBoard(blacksTurn, i + rowDif, j + colDif, rowDif, colDif, true)) {
                     flipTile(blacksTurn, i + rowDif, j + colDif);
                     return true;
@@ -87,10 +87,10 @@ public class DeafultLogic extends GameLogic {
             }
         } else {
             // White's turn - Reached a white tile. All the black tiles will flip
-            if (foundACandidate && board.getCell(i + rowDif, j + colDif) == Color.white)
+            if (foundACandidate && board.getCell(i + rowDif, j + colDif).equals(Color.white))
                 return true;
             // White's turn - tries to check if the first adjacent tile is black, and if true flips it
-            if (!foundACandidate && board.getCell(i + rowDif, j + colDif) == Color.black) {
+            if (!foundACandidate && board.getCell(i + rowDif, j + colDif).equals(Color.black)) {
                 if (changeBoard(blacksTurn, i + rowDif, j + colDif, rowDif, colDif, true)) {
                     flipTile(blacksTurn, i + rowDif, j + colDif);
                     return true;
@@ -98,7 +98,7 @@ public class DeafultLogic extends GameLogic {
 
             }
             // White's turn - Flips the next black tile
-            if (foundACandidate && board.getCell(i + rowDif, j + colDif) == Color.black) {
+            if (foundACandidate && board.getCell(i + rowDif, j + colDif).equals(Color.black)) {
                 if (changeBoard(blacksTurn, i + rowDif, j + colDif, rowDif, colDif, true)) {
                     flipTile(blacksTurn, i + rowDif, j + colDif);
                     return true;

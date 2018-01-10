@@ -5,7 +5,7 @@ public abstract class Player {
     protected GameLogic logic;
     protected boolean canPlay;
     protected int type;
-    protected Point lastMove ;
+    protected Point lastMove = new Point(0, 0);
 
     /**
      * @name : Player
@@ -31,7 +31,9 @@ public abstract class Player {
     /**
      * prints that the player has no moves
      **/
-    abstract void declareNoMoves();
+     void declareNoMoves(){
+         this.canPlay=false;
+     }
 
     /**
      *@return the last move of the player as a point
@@ -57,11 +59,5 @@ public abstract class Player {
 
     abstract void playOneTurn(boolean blacksTurn);
 
-    /**
-     * @name : onlineEnd
-     * @parameters : no parameters
-     * @return : in LocalPlayer only the function sends a message to the server declaring that the current game has ended
-     **/
-    abstract void onlineEnd();
 
 }
